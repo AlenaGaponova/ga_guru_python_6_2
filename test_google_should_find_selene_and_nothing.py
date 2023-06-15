@@ -13,3 +13,8 @@ def browser_open():
 def test_google_should_find_selene(browser_open):
     browser.element('[name="q"]').should(be.blank).type('yashaka/selene').press_enter()
     browser.element('[id="search"]').should(have.text('Selene - User-oriented Web UI browser tests in Python'))
+
+
+def test_google_should_find_nothing(browser_open):
+    browser.element('[name="q"]').should(be.blank).type('ftftftftftftftf klklklklklklk').press_enter()
+    browser.element('[id="result-stats"]').should(have.text('Результатов: примерно 0'))
